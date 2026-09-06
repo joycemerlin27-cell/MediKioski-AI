@@ -1,58 +1,74 @@
-# MediKiosk – Updated Root Folder Version
+# MediKiosk
 
-This version keeps the working MediKiosk frontend style and uses a **single root folder** for GitHub/Render.
+MediKiosk is a web-based hospital OPD management system designed to simplify patient registration, queue management, and doctor access to patient medical information.
 
-## Files
-- `server.js` – Express backend, uploads, authentication, queue APIs
-- `db.js` – SQLite database and automatic migration for verification fields
-- `index.html` – frontend shell
-- `style.css` – existing MediKiosk styling plus small additions for emergency/verification/document buttons
-- `script.js` – frontend logic
-- `images/` – existing hospital images
-- `uploads/` – created automatically by `server.js`
+## 🚀 Live Demo
 
-## New features
-1. No `frontend/` or `backend/` folders are required.
-2. Doctors can open/view/download patient-uploaded medical images/PDFs.
-3. Home page has Ambulance 108, Fire 101, Police 112 and Emergency Helpline 112.
-4. Patient registration requires one verification method:
-   - Aadhaar number: 12 digits + Verhoeff checksum check
-   - Health Card number: 6–30 letters/numbers/spaces/dot/slash/hyphen
-   - Birth Certificate: JPG/PNG/WEBP image only
-5. Aadhaar/Health Card values are stored as a SHA-256 hash plus last four characters; the full number is not returned to doctors.
-6. Birth Certificate image is stored as a protected patient document and is visible to the assigned doctor.
+https://medikioskhosp.onrender.com/
 
-## Important
-Aadhaar checksum validation is not government identity verification. This prototype does not connect to UIDAI or any government health database.
+## 💡 Key Features
 
-## Render
-- Root Directory: blank
-- Build Command: `npm install`
-- Start Command: `npm start`
-- Add `JWT_SECRET` as an environment variable (Render can generate it).
+### Patient Registration
+- Easy digital patient registration.
+- Collects essential patient information.
+- Supports verification through Aadhaar, Health Card, or Birth Certificate.
+- Generates an OPD queue number.
 
-## Demo accounts
-- Registration: `regdesk / reg123`
-- Doctors: `bones`, `brain`, `opd`, `emergency`, `pediatrics` / `doc123`
+### OPD Queue Management
+- Maintains the patient queue digitally.
+- Allows doctors to call and complete patients.
+- Helps reduce waiting-time confusion.
 
+### Medical Document Upload
+- Patients can upload previous medical reports and prescriptions.
+- Supports medical documents such as images and PDF files.
+- Documents can be accessed by authorized doctors.
 
-## Zero-folder structure
+### AI-Powered Medical History Summary
+- Uploaded medical reports are processed using Google Gemini AI.
+- Automatically extracts relevant medical information.
+- Generates a concise and organized medical history summary.
+- Helps doctors review previous medical information faster.
+- Patient-identifying information is excluded from the AI-generated summary.
+- The AI is used only for summarization and does not provide diagnosis or treatment recommendations.
 
-All project files and website images are kept directly in the project root.
-There is no `images` folder and no `uploads` folder.
+### Doctor Dashboard
+- Doctors can view registered patients.
+- Doctors can access uploaded medical documents.
+- Doctors can view the AI-generated medical history summary.
+- Supports scheduling patient follow-ups.
 
-Patient-uploaded files are stored directly in the project root at runtime.
-They are served through `/uploads/<filename>` by `server.js`.
+## 🛠️ Technology Stack
 
-Root files:
-- server.js
-- db.js
-- package.json
-- render.yaml
-- index.html
-- style.css
-- script.js
-- home.jpg
-- registration.jpg
-- queue.jpg
-- doctor.jpg
+### Frontend
+- HTML
+- CSS
+- JavaScript
+
+### Backend
+- Node.js
+- Express.js
+
+### Database
+- SQLite
+- better-sqlite3
+
+### AI
+- Google Gemini API
+- @google/genai
+
+### Deployment
+- GitHub
+- Render
+
+## 📂 Project Structure
+
+MediKiosk/
+├── index.html
+├── style.css
+├── script.js
+├── server.js
+├── db.js
+├── package.json
+├── render.yaml
+└── README.md
