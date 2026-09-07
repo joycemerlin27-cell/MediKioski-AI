@@ -4,7 +4,7 @@ MediKiosk is a web-based hospital OPD management system designed to simplify pat
 
 ## 🚀 Live Demo
 
-https://medikioskhosp.onrender.com/
+https://medikioski-ai.onrender.com
 
 ## 💡 Key Features
 
